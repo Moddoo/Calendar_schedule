@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
+<body>
+
+    <div class="jumbotron align-items-center d-flex justify-content-center" style="height: 125px;">
+        <h1 class="text-center text-success">Calendar</h1>
+    </div>
+    <div class="container">
+      
+        <div class="row justify-content-center">
+            <div id="main" class="col-8 h-100 m-0 p-0 card">
+               <h1 class="row  bg-secondary  text-white align-items-center justify-content-center m-0"><span class="mr-auto ml-2" id="prev">&lt;</span> <span id="monthAndYear">Month/Year</span> <span class="ml-auto mr-2" id="next">&gt;</span></h1>
+               <table class="table table-light table-striped card-body h-100 m-0" id="calendar">
+                   <thead class="thead-dark text-center">
+                       <tr>
+                           <th>SUN</th>
+                           <th>MON</th>
+                           <th>TUE</th>
+                           <th>WED</th>
+                           <th>THU</th>
+                           <th>FRI</th>
+                           <th>SAT</th>
+                       </tr>
+                   </thead>
+                   <tbody id="calendar-body"></tbody>
+               </table>
+            </div>
+            <!-- <div class="col-4 bg-warning">
+                <p class="display-3 text-center">Events</p>
+                <input type="text" value="" class="w-75 m-5">
+            </div>  -->
+        </div>
+        <!-- <div class="row justify-content-center" style="font-size: 25px;">
+           
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">9 AM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">10AM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">11AM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">12PM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">1 PM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">2 PM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">3 PM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            <div class="col-10 mt-3 p-0">
+                <div style="height: 60px"><span class="tim">4 PM</span> <input type="text" class="bt btn-l btn-inf w-50 pl-2 input"><span class="fa fa-bookmark icon" id="icon"></span></div>
+            </div>
+            
+        </div> -->
+    </div>
+     
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="assets/main.js"></script>
+</body>
+</html>

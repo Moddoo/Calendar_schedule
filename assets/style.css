@@ -1,0 +1,59 @@
+*, ::after, ::before{
+    box-sizing: border-box;
+}
+
+body{
+    height: 200vh;
+}
+#main{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 600;
+}
+#prev, #next{
+    cursor: pointer;
+    font-size: 70px;
+    font-weight: 800;
+    color: rgb(221, 221, 221);
+}
+#prev:hover, #next:hover{
+    color: white;
+}
+tbody tr td{
+    content: "'";
+}
+tbody tr td:hover{
+    background-color: cadetblue;
+    cursor: pointer;
+}
+#icon{
+    position: relative;
+    top: -1px;
+    background-color: rgb(163, 5, 5);
+    height: 100%;
+    width:50px;
+    color: white;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 0 15px 15px 0;
+}
+#icon:hover{
+    background-color: teal;
+    color: black;
+    cursor: pointer;
+}
+.input{
+    box-shadow: none !important;
+    height: 100%;
+    border-radius: 0 !important;
+    border: none;
+    outline: none;
+    background-color: burlywood;
+    padding: 5px !important;
+    /* display: inline-flex; */
+}
+.tim{
+    display: inline-block;
+    width: 70px;
+    font-size: 20px;
+}
