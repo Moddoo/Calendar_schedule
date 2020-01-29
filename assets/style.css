@@ -3,13 +3,14 @@
 }
 
 body{
-    height: 200vh;
+ display:grid;
 }
 #main{
     font-family: monospace;
     font-size: 20px;
     font-weight: 600;
 }
+
 #prev, #next{
     cursor: pointer;
     font-size: 70px;
