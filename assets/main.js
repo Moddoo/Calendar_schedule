@@ -75,9 +75,7 @@ $(document).ready(function(){
          let data;
          let index;
          let plnInput;
-        //  let txtArea = $("textarea");
-         
-        
+                
     
     //  put the value of all inputs inside plnlst array using for loop
     
@@ -86,7 +84,7 @@ $(document).ready(function(){
         plnLst.push(el.value);
         }
     
-    //   add eventListener to buttons to put the new plans in the array then save array in localStorage 
+    //   add eventListener to buttons to put the new inputs in the array then save array in localStorage 
     
         let btn = $(".bton");
         btn.click(function() {
@@ -98,7 +96,7 @@ $(document).ready(function(){
         })
 
 
-    //   move the plans saved in localStorage to the array then to the textarea input
+    //   move the inputs saved in localStorage to the array then to the textarea input
            
             // function storage() {
             //     plnLst = JSON.parse(localStorage.getItem("key"));
@@ -111,7 +109,7 @@ $(document).ready(function(){
                 plnLst = JSON.parse(localStorage.getItem("key"));
                 txtArea.each(function() {
                    let index = $(this).attr("data-time")-9;
-                   let inpt  = $(this).val(plnLst[index])     
+                   return $(this).val(plnLst[index])     
                 })
               }
 
