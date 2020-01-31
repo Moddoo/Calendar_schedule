@@ -75,6 +75,8 @@ $(document).ready(function(){
          let data;
          let index;
          let plnInput;
+        //  let txtArea = $("textarea");
+         
         
     
     //  put the value of all inputs inside plnlst array using for loop
@@ -97,13 +99,30 @@ $(document).ready(function(){
 
 
     //   move the plans saved in localStorage to the array then to the textarea input
+           
+            // function storage() {
+            //     plnLst = JSON.parse(localStorage.getItem("key"));
+            //     for(let el of txtArea) {
+            //         el.value = plnLst[el.dataset.time - 9];
+            //     }
+            //   }
 
-           plnLst = JSON.parse(localStorage.getItem("key"));
-           for(let el of txtArea) {
-               el.value = plnLst[el.dataset.time - 9];
-           }
+            function storage() {
+                plnLst = JSON.parse(localStorage.getItem("key"));
+                txtArea.each(function() {
+                   let index = $(this).attr("data-time")-9;
+                   let inpt  = $(this).val(plnLst[index])     
+                })
+              }
 
-    //   add classes to  
+              storage()
+           
+          
+          
+    //   add classes to inputs compared to time
+    
+    
+        
      
             
         

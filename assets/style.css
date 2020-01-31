@@ -6,8 +6,6 @@ html{
 }
 body{
  display:grid;
- /* overflow-x: hidden; */
- /* height: 200vh; */
 }
 #main{
     font-family: monospace;
@@ -39,6 +37,20 @@ button{
     outline: none !important;
     box-shadow: none !important;
 }
+
+.early{
+    background-color: rgb(16, 161, 16);
+    border: 1px solid black;
+    border-right: none;
+}
+.late{
+    background-color: grey;
+    border: 1px solid black;
+    border-right: none;
+    pointer-events: none;
+    text-decoration: line-through;
+}
+
 /* #icon{
     position: relative;
     top: -1px;
