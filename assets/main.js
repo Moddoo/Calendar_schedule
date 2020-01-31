@@ -80,9 +80,14 @@ $(document).ready(function(){
     //  put the value of all inputs inside plnlst array using for loop
     
         let txtArea = $("textarea");
-        for(let el of txtArea) {
-        plnLst.push(el.value);
-        }
+
+        // for(let el of txtArea) {
+        // plnLst.push(el.value);
+        // }
+        txtArea.each(function() {
+            plnLst.push($(this).val())
+        })
+        
     
     //   add eventListener to buttons to put the new inputs in the array then save array in localStorage 
     
@@ -109,17 +114,30 @@ $(document).ready(function(){
                 plnLst = JSON.parse(localStorage.getItem("key"));
                 txtArea.each(function() {
                    let index = $(this).attr("data-time")-9;
-                   return $(this).val(plnLst[index])     
+                       return $(this).val(plnLst[index])     
                 })
               }
 
               storage()
-           
+              
           
           
     //   add classes to inputs compared to time
     
-    
+        function time() {
+            $(txtArea).each(function() {
+                let data = parseInt($(this).attr("data-time"));
+                if(data < today.getHours()) {
+                   $(this).addClass("bg-danger")
+                   $(this).parent().css("pointer-events", "none")
+                } else if (data === today.getHours()) {
+                   $(this).addClass("bg-success")
+                }else {$(this).addClass("bg-secondary")}
+                console.log(today.getHours());
+                console.log(data);
+            })
+        }
+        time()
         
      
             
