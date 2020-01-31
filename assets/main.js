@@ -66,44 +66,46 @@ $(document).ready(function(){
          calendar(currentMonth,currentYear);
      }
      
-     //  $("#btn").click(function() {
-     //     localStorage.setItem("key",JSON.stringify($("textarea[data-time=9]").val()));
-     // })
-     
-     // $(function() {
- 
-     //     $("textarea[data-time=9]").text(JSON.parse(localStorage.getItem("key")))
- 
-     // })
 
 
     // Work Day Planner ........
-    
-    let btn = $(".bton");
-    let plnLst = [];
-    
-    
-    // let storage = localStorage.setItem("key", JSON.stringify(plnLst))
 
-    // btn.each(function() {
-    //   $(this).click(function() {
-    //       let data = $(this).attr("data-time");
-    //       let index = data - 9;
-    //       let plnInput = $("textarea[data-time ="+ data +"]").val();
-    //           plnLst[index] = plnInput;
-    //           localStorage.setItem("key", JSON.stringify(plnLst));
-    //           console.log(localStorage) 
-    //         })
-    //     })
-    btn.click(function() {
-          let data = $(this).attr("data-time");
-          let index = data - 9;
-          let plnInput = $("textarea[data-time ="+ data +"]").val();
-              plnLst[index] = plnInput;
-              localStorage.setItem("key", JSON.stringify(plnLst));
-              console.log(localStorage) 
-            })
-            console.log(localStorage)
+    
+         let plnLst = [];
+         let data;
+         let index;
+         let plnInput;
+        
+    
+    //  put the value of all inputs inside plnlst array using for loop
+    
+        let txtArea = $("textarea");
+        for(let el of txtArea) {
+        plnLst.push(el.value);
+        }
+    
+    //   add eventListener to buttons to put the new plans in the array then save array in localStorage 
+    
+        let btn = $(".bton");
+        btn.click(function() {
+                data = $(this).attr("data-time");
+                index = data - 9;
+                plnInput = $("textarea[data-time ="+ data +"]").val();
+                plnLst[index] = plnInput;
+                localStorage.setItem("key", JSON.stringify(plnLst));
+        })
+
+
+    //   move the plans saved in localStorage to the array then to the textarea input
+
+           plnLst = JSON.parse(localStorage.getItem("key"));
+           for(let el of txtArea) {
+               el.value = plnLst[el.dataset.time - 9];
+           }
+
+    //   add classes to  
+     
+            
         
 
 
