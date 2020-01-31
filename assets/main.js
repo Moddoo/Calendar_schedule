@@ -17,22 +17,25 @@ $(document).ready(function(){
             }
             console.log(daysNo(currentYear,currentMonth))
          let tBody    = $("#calendar-body");
-            tBody.text(""); monthAndYear.text(months[month] + " " + year);
+             tBody.text("");
+             monthAndYear.text(months[month] + " " + year);
          let day = 1;
 
          for(i=0; i<6; i++) {
                  var row = $("<tr>");
-                 var td = $("<td>");
-                 
+                //  var td = $("<td>");
+                         
              for(j=0; j<7; j++) {
+            
                  if(i === 0 && j < firstDay) {
                     var td = $("<td>");
                     var tdTxt = td.append("");
-                    row.append(tdTxt);
+                        row.append(tdTxt);
 
              }   else if(day > daysNo(year,month)) { break;}
                  else {
                      var td = $("<td>").addClass("text-center");
+                        
                           if(day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
                                td.css({
                                    background: "black",
@@ -58,8 +61,55 @@ $(document).ready(function(){
      }
 
      function nex() {
-         currentYear  = currentMonth === 11 ? currentYear + 1 : currentYear;
-         currentMonth = currentMonth === 11 ? 0 : currentMonth + 1 ;
+         currentYear  = (currentMonth === 11) ? currentYear + 1 : currentYear;
+         currentMonth = (currentMonth === 11) ? 0 : currentMonth + 1 ;
          calendar(currentMonth,currentYear);
      }
-})
+     
+     //  $("#btn").click(function() {
+     //     localStorage.setItem("key",JSON.stringify($("textarea[data-time=9]").val()));
+     // })
+     
+     // $(function() {
+ 
+     //     $("textarea[data-time=9]").text(JSON.parse(localStorage.getItem("key")))
+ 
+     // })
+
+
+    // Work Day Planner ........
+    
+    let btn = $(".bton");
+    let plnLst = [];
+    
+    
+    // let storage = localStorage.setItem("key", JSON.stringify(plnLst))
+
+    // btn.each(function() {
+    //   $(this).click(function() {
+    //       let data = $(this).attr("data-time");
+    //       let index = data - 9;
+    //       let plnInput = $("textarea[data-time ="+ data +"]").val();
+    //           plnLst[index] = plnInput;
+    //           localStorage.setItem("key", JSON.stringify(plnLst));
+    //           console.log(localStorage) 
+    //         })
+    //     })
+    btn.click(function() {
+          let data = $(this).attr("data-time");
+          let index = data - 9;
+          let plnInput = $("textarea[data-time ="+ data +"]").val();
+              plnLst[index] = plnInput;
+              localStorage.setItem("key", JSON.stringify(plnLst));
+              console.log(localStorage) 
+            })
+            console.log(localStorage)
+        
+
+
+    
+
+  
+
+});
+
