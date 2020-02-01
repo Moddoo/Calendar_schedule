@@ -50,36 +50,11 @@ button{
     pointer-events: none;
     text-decoration: line-through;
 }
+.clear{
+    width: 10vw;
+    height: 10vh;
+    display: block;
+    margin: 0 auto;
+}
 
-/* #icon{
-    position: relative;
-    top: -1px;
-    background-color: rgb(163, 5, 5);
-    height: 100%;
-    width:50px;
-    color: white;
-    display: inline-grid;
-    place-items: center;
-    border-radius: 0 15px 15px 0;
-}
-#icon:hover{
-    background-color: teal;
-    color: black;
-    cursor: pointer;
-}
-.input{
-    box-shadow: none !important;
-    height: 100%;
-    border-radius: 0 !important;
-    border: none;
-    outline: none;
-    background-color: burlywood;
-    padding: 5px !important;
-    display: inline-flex;
-}
-.tim{
-    display: inline-block;
-    width: 70px;
-    font-size: 20px;
-}  */
 

@@ -75,30 +75,34 @@ $(document).ready(function(){
          let data;
          let index;
          let plnInput;
+         
                 
     
-    //  put the value of all inputs inside plnlst array using for loop
+    //  put the value of all inputs inside plnlst array then move it to localStorage using for loop 
     
         let txtArea = $("textarea");
-
         // for(let el of txtArea) {
         // plnLst.push(el.value);
         // }
         txtArea.each(function() {
             plnLst.push($(this).val())
         })
+        console.log(plnLst)
+        // localStorage.setItem("key", JSON.stringify(plnLst))
         
     
     //   add eventListener to buttons to put the new inputs in the array then save array in localStorage 
     
         let btn = $(".bton");
-        btn.click(function() {
-                data = $(this).attr("data-time");
-                index = data - 9;
-                plnInput = $("textarea[data-time ="+ data +"]").val();
-                plnLst[index] = plnInput;
-                localStorage.setItem("key", JSON.stringify(plnLst));
-        })
+        
+            btn.click(function() {
+                    data = $(this).attr("data-time");
+                    index = data - 9;
+                    plnInput = $("textarea[data-time ="+ data +"]").val();
+                    plnLst[index] = plnInput;
+                    localStorage.setItem("key", JSON.stringify(plnLst));
+                    console.log(plnLst)
+            })
 
 
     //   move the inputs saved in localStorage to the array then to the textarea input
@@ -111,6 +115,7 @@ $(document).ready(function(){
             //   }
 
             function storage() {
+                localStorage.setItem("key",JSON.stringify(plnLst));
                 plnLst = JSON.parse(localStorage.getItem("key"));
                 txtArea.each(function() {
                    let index = $(this).attr("data-time")-9;
@@ -120,7 +125,9 @@ $(document).ready(function(){
 
               storage()
               
-          
+          function pull() {
+
+          }
           
     //   add classes to inputs compared to time
     
@@ -128,25 +135,31 @@ $(document).ready(function(){
             $(txtArea).each(function() {
                 let data = parseInt($(this).attr("data-time"));
                 if(data < today.getHours()) {
-                   $(this).addClass("bg-danger")
-                   $(this).parent().css("pointer-events", "none")
+                   $(this).addClass("bg-secondary")
+                //    $(this).parent().css("pointer-events", "none")
                 } else if (data === today.getHours()) {
-                   $(this).addClass("bg-success")
-                }else {$(this).addClass("bg-secondary")}
-                console.log(today.getHours());
-                console.log(data);
+                   $(this).addClass("bg-danger")
+                }else {$(this).addClass("bg-success")}
             })
         }
         time()
-        
-     
-            
-        
 
+    //    add button to clear all
 
+        let clear = $(".clear");
+        
+            clear.click(function(){
+               $("textarea").val("");
+               plnLst=[]
+               txtArea.each(function() {
+                   plnLst.push($(this).val())
+               })
+               console.log(plnLst)
+               localStorage.setItem("key",JSON.stringify(plnLst))
+            })
+                
+
+        
     
-
-  
-
 });
 
