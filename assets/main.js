@@ -84,12 +84,15 @@ $(document).ready(function(){
         // for(let el of txtArea) {
         // plnLst.push(el.value);
         // }
-        // txtArea.each(function() {
-        //     plnLst.push($(this).val())
-        //     localStorage.setItem("key", JSON.stringify(plnLst));
-        // })
+        txtArea.each(function() {
+            plnLst.push($(this).val())
+        })
         
-        console.log(plnLst)
+        let store = localStorage.getItem("key");
+        if(!store){
+            localStorage.setItem("key", JSON.stringify(plnLst));
+        }
+        // console.log(plnLst)
         // localStorage.setItem("key", JSON.stringify(plnLst))
         
     
