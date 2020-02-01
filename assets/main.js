@@ -84,9 +84,11 @@ $(document).ready(function(){
         // for(let el of txtArea) {
         // plnLst.push(el.value);
         // }
-        txtArea.each(function() {
-            plnLst.push($(this).val())
-        })
+        // txtArea.each(function() {
+        //     plnLst.push($(this).val())
+        //     localStorage.setItem("key", JSON.stringify(plnLst));
+        // })
+        
         console.log(plnLst)
         // localStorage.setItem("key", JSON.stringify(plnLst))
         
@@ -101,9 +103,11 @@ $(document).ready(function(){
                     plnInput = $("textarea[data-time ="+ data +"]").val();
                     plnLst[index] = plnInput;
                     localStorage.setItem("key", JSON.stringify(plnLst));
-                    console.log(plnLst)
-            })
-
+                    plnLst = JSON.parse(localStorage.getItem("key"));
+                    plnInput = plnLst[index];
+                    })
+                
+               
 
     //   move the inputs saved in localStorage to the array then to the textarea input
            
@@ -115,7 +119,6 @@ $(document).ready(function(){
             //   }
 
             function storage() {
-                localStorage.setItem("key",JSON.stringify(plnLst));
                 plnLst = JSON.parse(localStorage.getItem("key"));
                 txtArea.each(function() {
                    let index = $(this).attr("data-time")-9;
@@ -154,7 +157,6 @@ $(document).ready(function(){
                txtArea.each(function() {
                    plnLst.push($(this).val())
                })
-               console.log(plnLst)
                localStorage.setItem("key",JSON.stringify(plnLst))
             })
                 
