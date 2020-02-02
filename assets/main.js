@@ -75,26 +75,37 @@ $(document).ready(function(){
          let data;
          let index;
          let plnInput;
+         let txtArea;
+         let store;
+         let now = $("#now");
+             now.append("' " + moment().format('MMMM Do YYYY' + " '"));
          
                 
     
-    //  put the value of all inputs inside plnlst array then move it to localStorage using for loop 
+    //  put the value of all inputs inside plnLst array then move it to localStorage using for loop 
     
-        let txtArea = $("textarea");
-        // for(let el of txtArea) {
-        // plnLst.push(el.value);
-        // }
-        txtArea.each(function() {
-            plnLst.push($(this).val())
-        })
-        
-        let store = localStorage.getItem("key");
-        if(!store){
-            localStorage.setItem("key", JSON.stringify(plnLst));
-        }
-        // console.log(plnLst)
-        // localStorage.setItem("key", JSON.stringify(plnLst))
-        
+    
+     
+        function storage() {
+                store = localStorage.getItem("key");
+                txtArea = $("textarea");
+
+            if(!store){
+                txtArea.each(function() {
+                    plnLst.push($(this).val())
+                })
+                localStorage.setItem("key", JSON.stringify(plnLst));
+            } else{
+                plnLst = JSON.parse(localStorage.getItem("key"));
+                txtArea.each(function() {
+                   let index = $(this).attr("data-time")-9;
+                       return $(this).val(plnLst[index])     
+                })
+            }
+          }
+
+          storage()
+         
     
     //   add eventListener to buttons to put the new inputs in the array then save array in localStorage 
     
@@ -106,36 +117,20 @@ $(document).ready(function(){
                     plnInput = $("textarea[data-time ="+ data +"]").val();
                     plnLst[index] = plnInput;
                     localStorage.setItem("key", JSON.stringify(plnLst));
-                    plnLst = JSON.parse(localStorage.getItem("key"));
-                    plnInput = plnLst[index];
                     })
                 
-               
-
-    //   move the inputs saved in localStorage to the array then to the textarea input
-           
-            // function storage() {
-            //     plnLst = JSON.parse(localStorage.getItem("key"));
-            //     for(let el of txtArea) {
-            //         el.value = plnLst[el.dataset.time - 9];
-            //     }
-            //   }
-
-            function storage() {
-                plnLst = JSON.parse(localStorage.getItem("key"));
-                txtArea.each(function() {
-                   let index = $(this).attr("data-time")-9;
-                       return $(this).val(plnLst[index])     
-                })
-              }
-
-              storage()
-              
-          function pull() {
-
-          }
           
     //   add classes to inputs compared to time
+    function buildPlanner(timestamp) {
+        //for loop to create HTML list elements
+        //in for loop, check timestamp to determine color of list element
+
+        //sample obj= {
+        // ts1: [task 1, task 2] 
+        // ts2:  
+        // }
+
+    }
     
         function time() {
             $(txtArea).each(function() {
@@ -156,7 +151,7 @@ $(document).ready(function(){
         
             clear.click(function(){
                $("textarea").val("");
-               plnLst=[]
+               plnLst=[];
                txtArea.each(function() {
                    plnLst.push($(this).val())
                })
@@ -164,7 +159,27 @@ $(document).ready(function(){
             })
                 
 
-        
+        // $("td").click(function(){ 
+        //     if($(this).text() == today.getDate()){
+        //         $(this).css({
+        //             background: "black",
+        //             color: "white",
+        //         });
+        //         return;
+                
+        //     } else if($(this).text() > today.getDate()) {
+        //         $(this).addClass("bg-warning");
+        //         y = $(".wow").clone(true).appendTo("body");
+        //         y.removeClass("wow");
+        //         debugger;
+        //         $("textarea").each(function(){
+        //             $(this).val("");
+        //         })
+        //         $(".wow").addClass("d-none");
+        //         // y.addClass("d-none")
+        //         // console.log(y)
+        //     }
+        // })
     
 });
 

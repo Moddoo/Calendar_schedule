@@ -27,6 +27,23 @@ tbody tr td:hover{
     background-color: cadetblue;
     cursor: pointer;
 }
+#now{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    font-size: 2vw;
+    color: blue;
+}
+
+textarea:focus{
+    position: relative;
+    height: 300px;
+    z-index: 9;
+    transform: scale(1,1.5);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    background-color: floralwhite !important;
+}
 textarea{
     border-right: none;
     box-shadow: none;
@@ -55,6 +72,11 @@ button{
     height: 10vh;
     display: block;
     margin: 0 auto;
+}
+@media (max-width: 450px) {
+    .clear{
+        width: 50vw;
+    }
 }
 
 
